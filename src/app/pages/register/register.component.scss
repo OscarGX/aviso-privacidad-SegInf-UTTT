@@ -1,0 +1,125 @@
+.auth-container {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0px 15px;
+}
+
+.auth {
+    /* background: rgb(85, 103, 111);
+    background: linear-gradient(90deg, rgba(85, 103, 111, 1) 50%, rgba(254, 254, 254, 1) 50%); */
+    /* background: rgb(97, 186, 121);
+    background: linear-gradient(90deg, rgba(97, 186, 121, 1) 50%, rgba(255, 255, 255, 1) 50%); */
+    background: rgb(163, 198, 169);
+    background: linear-gradient(90deg, rgba(163, 198, 169, 1) 50%, rgba(255, 255, 255, 1) 50%);
+    width: 70%;
+    border-radius: 5px;
+    display: flex;
+    padding: 10px 0px 10px;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .075);
+}
+
+.img-container {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.img-container img {
+    width: 80%;
+}
+
+.form-container {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+}
+
+.form-container h1 {
+    color: #2F2E41
+}
+
+form {
+    width: 80%;
+}
+
+.form-group {
+    display: flex;
+    flex-flow: column wrap;
+    margin-top: 20px;
+}
+
+.form-group label {
+    font-size: 18px;
+    color: #2F2E41;
+}
+
+.form-group input {
+    margin-top: 10px;
+    /* border-radius: 5px; */
+    height: 35px;
+    font-size: 16px;
+    /* border: 1px solid rgba(171, 171, 171, 0); */
+    border-bottom: 1px solid #ababab;
+}
+
+.form-group input:focus {
+    /* outline-color: rgba(85, 103, 111, 1); */
+    outline: none;
+    border-bottom: 1px solid #2F2E41;
+}
+
+.account-link {
+    text-decoration: none;
+    color: #0081cc;
+}
+
+.account-link:hover {
+    color: #024f7c;
+}
+
+
+/* responsive design */
+
+@media screen and (max-width: 800px) {
+    .auth-container {
+        padding: 0px 0px 0px;
+    }
+    .auth {
+        width: 100%;
+        border-radius: 0px;
+    }
+    .img-container img {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .auth {
+        flex-direction: column;
+        /*  background: rgb(163, 198, 169);
+        background: linear-gradient(180deg, rgba(163, 198, 169, 1) 50%, rgba(255, 255, 255, 1) 50%); */
+        background: #fff;
+        padding: 0px 0px 0px;
+    }
+    .img-container {
+        width: 100%;
+        background-color: #a3c6a9;
+        padding: 10px 0px 10px;
+        height: 250px;
+    }
+    .img-container img {
+        width: 50%;
+    }
+    .form-container {
+        width: 100%;
+        margin-top: 3em;
+        padding: 0px 0px 20px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .img-container img {
+        width: 80%;
+    }
+}

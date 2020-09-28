@@ -1,0 +1,36 @@
+/* navbar styles */
+
+.header {
+    display: flex;
+    background-color: #2F2E41;
+    flex-flow: row wrap;
+    color: #fff;
+    height: 50px;
+}
+
+
+/* Responsive design */
+
+@media screen and (max-width: 768px) {
+    .header {
+        height: auto;
+        background-color: #fff;
+    }
+}
+
+
+/* end navbar styles */
+
+
+/* footer styles */
+
+.footer {
+    background-color: #2F2E41;
+    color: #fff;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+
+/* end footer styles */
