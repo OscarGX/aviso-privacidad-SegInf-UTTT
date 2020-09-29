@@ -47,6 +47,10 @@ body {
     background-color: #219c3d;
 }
 
+.btn-success:disabled {
+    background-color: rgba(40, 167, 69, 0.5);
+}
+
 .btn-success:focus {
     outline-color: #2ee658;
 }
