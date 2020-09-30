@@ -63,6 +63,14 @@ form {
     border-bottom: 1px solid #ababab;
 }
 
+.form-group input.is-invalid {
+    border-bottom: 1px solid #db0909;
+}
+
+.form-group input.is-invalid:focus {
+    border-bottom: 1px solid #db0909;
+}
+
 .form-group input:focus {
     /* outline-color: rgba(85, 103, 111, 1); */
     outline: none;

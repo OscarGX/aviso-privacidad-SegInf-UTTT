@@ -4,25 +4,25 @@
             <img src="assets/svg/undraw_Access_account_re_8spm-FF6363.svg" alt="Auth">
         </div>
         <div class="form-container">
-            <form autocomplete="off">
+            <form autocomplete="off" (ngSubmit)="saveData()" [formGroup]="form">
                 <h1 class="text-center">Sign in</h1>
                 <div class="form-group">
                     <label>Username</label>
-                    <input type="text" name="username" placeholder="Type your username" required>
+                    <input type="text" placeholder="Type your username" [class.is-invalid]="isUsernameValid" formControlName="username">
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" name="email" placeholder="example@mail.com" required>
+                    <input type="email" placeholder="example@mail.com" [class.is-invalid]="isEmailValid" formControlName="email">
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" placeholder="same password" name="password1" required>
+                    <input type="password" placeholder="same password" [class.is-invalid]="isPassword1Valid" formControlName="password1">
                 </div>
                 <div class="form-group">
                     <label>Repeat your password</label>
-                    <input type="password" placeholder="same password" name="password2" required>
+                    <input type="password" placeholder="same password" [class.is-invalid]="isPassword2ValidAndEqualsThatFirst" formControlName="password2">
                 </div>
-                <button class="btn btn-success mt-3" [disabled]="!isAccepted">
+                <button class="btn btn-success mt-3" [disabled]="isButtonValid">
                     Register
                 </button>
                 <br>
