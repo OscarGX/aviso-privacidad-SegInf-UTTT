@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { ValidationsService } from '../../services/validations.service';
+import { AlertsService } from '../../services/alerts.service';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,7 @@ export class RegisterComponent implements OnInit {
   isAccepted = false;
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, private vs: ValidationsService) {
+  constructor(private fb: FormBuilder, private vs: ValidationsService, private as: AlertsService) {
     this.createForm();
    }
 
@@ -52,25 +53,8 @@ export class RegisterComponent implements OnInit {
     return pass1Field === pass2Field ? false : true;
   }
 
-  private async presentModal(): Promise<void> {
-    const avisoText = `
-      La seguridad es muy importante para nosotros, es por eso que quermos proteger tus datos.
-      <br>De acuerdo con lo establecido en la<strong> Ley Federal de Protección de Datos Personales en
-      Posesión de los Particulares y su Reglamento</strong>, autorizo a "nombre de la empresa etc" el
-      tratamiento de mis datos personales de acuerdo a lo previsto en el <a href="#">aviso de privacidad.</a>
-    `;
-    const { value: accept } = await Swal.fire({
-      title: 'Aviso de privacidad',
-      html: avisoText,
-      input: 'checkbox',
-      inputPlaceholder: 'He leido el aviso de privacidad y acepto los términos y condiciones',
-      confirmButtonText: 'Aceptar',
-      inputValidator: (result) => {
-        return !result && 'Debes aceptar los términos y condiciones';
-      },
-      allowEscapeKey: false,
-      allowOutsideClick: false
-    });
+  private presentModal() {
+    const accept = this.as.presentModal();
     if (accept) {
       this.isAccepted = true;
     }
@@ -91,24 +75,13 @@ export class RegisterComponent implements OnInit {
   saveData(): void {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
+      return;
     }
-    Swal.fire({
-      allowOutsideClick: false,
-      allowEscapeKey: false,
-      title: 'Test',
-      text: 'Espere',
-      onBeforeOpen: () => {
-        Swal.showLoading();
-      }
-    });
+    this.as.showLoading('Espere...', 'Estamos haciendo su registro.');
     setTimeout(() => {
       console.log('Respondió la llamada asíncrona.');
-      Swal.hideLoading();
-      Swal.fire({
-        title: 'Yeah',
-        text: 'Se subieron los archivos',
-        icon: 'success'
-      });
+      this.as.hideLoading();
+      this.as.showAlertGeneric('Yeah!', 'El registró fue exitoso', 'success');
     }, 3000);
   }
 }
