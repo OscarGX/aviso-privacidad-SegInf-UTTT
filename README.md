@@ -1,4 +1,6 @@
-# AvisoPrivacidad
+# Aviso de Privacidad
+
+#### Created by: Oscar Reyes Mtz.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
 
