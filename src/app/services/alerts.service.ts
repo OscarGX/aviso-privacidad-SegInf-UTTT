@@ -10,10 +10,12 @@ export class AlertsService {
 
   async presentModal(): Promise<void> {
     const avisoText = `
-      La seguridad es muy importante para nosotros, es por eso que quermos proteger tus datos.
+      <p class="text-justify">
+      La seguridad es muy importante para nosotros, es por eso que queremos proteger tus datos.
       <br>De acuerdo con lo establecido en la<strong> Ley Federal de Protección de Datos Personales en
-      Posesión de los Particulares y su Reglamento</strong>, autorizo a "nombre de la empresa etc" el
-      tratamiento de mis datos personales de acuerdo a lo previsto en el <a href="#">aviso de privacidad.</a>
+      Posesión de los Particulares y su Reglamento</strong>, autorizo a "nombre de la empresa blah blah" el
+      tratamiento de mis datos personales de acuerdo a lo previsto en el <a href="/#/notice-privacy">aviso de privacidad.</a>
+      </p>
     `;
     const { value: accept } = await Swal.fire({
       title: 'Aviso de privacidad',

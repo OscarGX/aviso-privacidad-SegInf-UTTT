@@ -6,7 +6,9 @@ const routes: Routes = [
   { path: '',  redirectTo: 'register', pathMatch: 'full'},
   { path: 'register', loadChildren: () => import('../app/pages/register/register.module').then(m => m.RegisterModule) },
   { path: 'login', loadChildren: () => import('../app/pages/login/login.module').then(m => m.LoginModule) },
-  { path: 'home', loadChildren: () => import('../app/pages/home/home.module').then(m => m.HomeModule) }
+  { path: 'home', loadChildren: () => import('../app/pages/home/home.module').then(m => m.HomeModule) },
+  { path: 'notice-privacy', loadChildren: () => import('../app/pages/notice-privacy/notice-privacy.module')
+          .then(m => m.NoticePrivacyModule) }
 ];
 
 @NgModule({

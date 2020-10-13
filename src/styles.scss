@@ -28,6 +28,10 @@ body {
     text-align: center;
 }
 
+.text-justify {
+    text-align: justify;
+}
+
 .btn {
     border-radius: .25rem;
     cursor: pointer;
@@ -61,4 +65,13 @@ body {
 
 .mt-2 {
     margin-top: 2em;
+}
+
+.link {
+    text-decoration: none;
+    color: #0081cc;
+}
+
+.link:hover {
+    color: #024f7c;
 }

@@ -1,0 +1,28 @@
+.notice-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.privacy {
+    width: 70%;
+    padding: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .privacy {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .privacy {
+        width: 100%;
+    }
+    .privacy h1 {
+        font-size: 1.5em;
+    }
+    .privacy p {
+        font-size: 15px;
+    }
+}

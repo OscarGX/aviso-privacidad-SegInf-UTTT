@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { ValidationsService } from '../../services/validations.service';
@@ -9,7 +9,7 @@ import { AlertsService } from '../../services/alerts.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
   isAccepted = false;
   form: FormGroup;
 
@@ -83,5 +83,9 @@ export class RegisterComponent implements OnInit {
       this.as.hideLoading();
       this.as.showAlertGeneric('Yeah!', 'El registró fue exitoso', 'success');
     }, 3000);
+  }
+
+  ngOnDestroy(): void {
+    this.as.hideLoading();
   }
 }
