@@ -5,8 +5,12 @@ import Swal, { SweetAlertIcon } from 'sweetalert2';
   providedIn: 'root'
 })
 export class AlertsService {
+  host: string;
 
-  constructor() { }
+  constructor() {
+    origin = window.location.origin;
+    this.host = window.location.host.includes('localhost') ? `${origin}/#/notice-privacy` : `${origin}/aviso-privacidad-SegInf-UTTT/#/notice-privacy`;
+   }
 
   async presentModal(): Promise<void> {
     const avisoText = `
@@ -14,7 +18,7 @@ export class AlertsService {
       La seguridad es muy importante para nosotros, es por eso que queremos proteger tus datos.
       <br>De acuerdo con lo establecido en la<strong> Ley Federal de Protección de Datos Personales en
       Posesión de los Particulares y su Reglamento</strong>, autorizo a "nombre de la empresa blah blah" el
-      tratamiento de mis datos personales de acuerdo a lo previsto en el <a href="/#/notice-privacy">aviso de privacidad.</a>
+      tratamiento de mis datos personales de acuerdo a lo previsto en el <a href="${this.host}">aviso de privacidad.</a>
       </p>
     `;
     const { value: accept } = await Swal.fire({

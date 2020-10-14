@@ -9,7 +9,7 @@ export class NoticePrivacyComponent implements OnInit {
   host: string;
 
   constructor() {
-    this.host = window.location.origin;
+    this.host = `${window.location.origin}/`;
    }
 
   ngOnInit(): void {
